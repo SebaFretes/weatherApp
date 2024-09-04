@@ -1,6 +1,12 @@
 
 export const useWeather = () => {
-  return (
-    <div>useWeather</div>
-  )
+
+    const fetchWeather = () => {
+        console.log('consultando');
+        
+    }
+
+  return {
+    fetchWeather
+  }
 }

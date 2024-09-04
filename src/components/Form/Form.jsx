@@ -3,7 +3,7 @@ import { countries } from "../../data/countriesList";
 import styles from './Form.module.css';
 import { Alert } from "../Alert/Alert";
 
-export const Form = () => {
+export const Form = ({fetchWeather}) => {
 
     const [search, setSearch] = useState({
         city: '',
@@ -27,6 +27,7 @@ export const Form = () => {
             setAlert('Ambos campos deben estar completos');
             return;
         }
+        fetchWeather();
     }
 
     return (
