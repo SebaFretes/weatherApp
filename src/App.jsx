@@ -4,7 +4,7 @@ import { useWeather } from './hooks/useWeather';
 
 export const App = () => {
 
-  const { fetchWeather } = useWeather();
+  const { fetchWeather } = useWeather();  
 
   return (
     <>

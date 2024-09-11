@@ -27,7 +27,7 @@ export const Form = ({fetchWeather}) => {
             setAlert('Ambos campos deben estar completos');
             return;
         }
-        fetchWeather();
+        fetchWeather(search);
     }
 
     return (
