@@ -6,7 +6,7 @@ export const useWeather = () => {
   const [weather, setWeather] = useState({
     name: '',
     temp: 0,
-    humidity: 0
+    humidity: 0,
   })
 
   const fetchWeather = async (search) => {
@@ -27,7 +27,7 @@ export const useWeather = () => {
       setWeather({
         name: result.name,
         temp: Math.round(result.main.temp),
-        humidity: result.main.humidity
+        humidity: result.main.humidity,
       });
 
       console.log(result.name);
@@ -39,8 +39,13 @@ export const useWeather = () => {
     }
   }
 
+  const hasWeatherData = (weather) => {
+    return weather.name !== '';
+  }
+
   return {
     weather,
-    fetchWeather
+    fetchWeather,
+    hasWeatherData
   }
 }

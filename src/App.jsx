@@ -1,10 +1,11 @@
 import styles from './App.module.css';
 import { Form } from './components/Form/Form';
+import { WeatherDetail } from './components/WeatherDetail/WeatherDetail';
 import { useWeather } from './hooks/useWeather';
 
 export const App = () => {
 
-  const { weather, fetchWeather } = useWeather();  
+  const { weather, fetchWeather, hasWeatherData } = useWeather();  
 
   return (
     <>
@@ -13,6 +14,9 @@ export const App = () => {
         <Form
           fetchWeather={fetchWeather}
         />
+        {hasWeatherData(weather) &&
+          <WeatherDetail weather={weather} />
+        }
       </div>
     </>
   )
