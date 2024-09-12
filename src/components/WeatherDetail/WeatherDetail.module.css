@@ -1,0 +1,17 @@
+.container {
+    color: #000;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.data {
+    font-size: 3rem;
+    font-weight: 700;
+}
