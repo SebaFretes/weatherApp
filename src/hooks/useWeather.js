@@ -3,11 +3,13 @@ import { useState } from 'react';
 
 export const useWeather = () => {
 
-  const [weather, setWeather] = useState({
+  const initialState = {
     name: '',
     temp: 0,
     humidity: 0,
-  })
+  }
+
+  const [weather, setWeather] = useState(initialState);
 
   const [loading, setLoading] = useState(false);
 
@@ -15,6 +17,7 @@ export const useWeather = () => {
 
     const apiKey = import.meta.env.VITE_API_KEY
     setLoading(true);
+    setWeather(initialState);
 
     try {
       const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${apiKey}`;
