@@ -7,14 +7,10 @@
 .form input[type="text"], select {
     padding: 1rem;
     background-color: transparent;
-    color: var(--white);
+    /* color: var(--white); */
     font-size: 1.8rem;
     font-weight: 700;
     border-radius: 1rem;
-}
-
-.form ::placeholder {
-    color: var(--white);
 }
 
 .submit {
