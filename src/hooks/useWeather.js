@@ -9,9 +9,12 @@ export const useWeather = () => {
     humidity: 0,
   })
 
+  const [loading, setLoading] = useState(false);
+
   const fetchWeather = async (search) => {
 
     const apiKey = import.meta.env.VITE_API_KEY
+    setLoading(true);
 
     try {
       const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${apiKey}`;
@@ -30,12 +33,14 @@ export const useWeather = () => {
         humidity: result.main.humidity,
       });
 
-      console.log(result.name);
-      console.log(`Temperatura ${Math.round(result.main.temp)}°C`);
-      console.log(`Humedad ${result.main.humidity}%`);
+      // console.log(result.name);
+      // console.log(`Temperatura ${Math.round(result.main.temp)}°C`);
+      // console.log(`Humedad ${result.main.humidity}%`);
 
     } catch (error) {
       console.error("Error fetching weather data:", error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -45,6 +50,7 @@ export const useWeather = () => {
 
   return {
     weather,
+    loading,
     fetchWeather,
     hasWeatherData
   }
