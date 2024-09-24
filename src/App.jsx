@@ -1,5 +1,6 @@
 import styles from './App.module.css';
 import { Form } from './components/Form/Form';
+import { Spinner } from './components/Spinner/Spinner';
 import { WeatherDetail } from './components/WeatherDetail/WeatherDetail';
 import { useWeather } from './hooks/useWeather';
 
@@ -14,7 +15,7 @@ export const App = () => {
         <Form
           fetchWeather={fetchWeather}
         />
-        {loading && <p>Cargando...</p>}
+        {loading && <Spinner />}
         {hasWeatherData(weather) &&
           <WeatherDetail weather={weather} />
         }
