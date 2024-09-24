@@ -10,8 +10,8 @@ export const useWeather = () => {
   }
 
   const [weather, setWeather] = useState(initialState);
-
   const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
   const fetchWeather = async (search) => {
 
@@ -22,6 +22,11 @@ export const useWeather = () => {
     try {
       const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${apiKey}`;
       const { data } = await axios(geoURL);
+
+      if(!data[0]) {
+        setNotFound(true);
+        return;
+      }
 
       const lat = data[0].lat;
       const lon = data[0].lon;
@@ -54,6 +59,7 @@ export const useWeather = () => {
   return {
     weather,
     loading,
+    notFound,
     fetchWeather,
     hasWeatherData
   }
